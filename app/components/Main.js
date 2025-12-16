@@ -8,7 +8,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import { Alexandria, Poppins } from "next/font/google";
@@ -19,6 +19,10 @@ import { MoreHoriz } from "@mui/icons-material";
 import { Gauge, gaugeClasses } from "@mui/x-charts/Gauge";
 import GradePicker from "./GradePicker";
 import Calendar from "../components/Calendar";
+import people from "../../public/icons/people.svg";
+import check from "../../public/icons/check.svg";
+import award from "../../public/icons/award.svg";
+import task from "../../public/icons/task.svg";
 
 const settings = {
   width: "100",
@@ -46,6 +50,40 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 function Main() {
+  const progress = [
+    {
+      id: "p1",
+      image: people,
+      txtEn: "Attendance",
+      txtFa: "مراقبت",
+      num: "80%",
+      bg: "#F0F9FC",
+    },
+    {
+      id: "p2",
+      image: task,
+      txtEn: "Task Completed",
+      txtFa: "کار انجام شده",
+      num: "258+",
+      bg: "#F1F0FF",
+    },
+    {
+      id: "p3",
+      image: check,
+      txtEn: "Task in Progress",
+      txtFa: "کار در حال اجام",
+      num: "64%",
+      bg: "#FDF6D8",
+    },
+    {
+      id: "p4",
+      image: award,
+      txtEn: "Reward Points",
+      txtFa: "امتیاز پاداش",
+      num: "245",
+      bg: "#FFF4FD",
+    },
+  ];
   const { lang, theme } = useContext(myTheme);
 
   const [age, setAge] = React.useState("");
@@ -109,7 +147,7 @@ function Main() {
               <Box
                 sx={{
                   position: "absolute",
-                  bottom: {xs: 0,sm: -40},
+                  bottom: { xs: 0, sm: -40 },
                   transform: lang ? "" : "scaleX(-1)",
                   right: lang ? 0 : "auto",
                   left: lang ? "auto" : 0,
@@ -246,7 +284,92 @@ function Main() {
         </Grid>
       </Grid>
       {/* end grid */}
-      <Stack></Stack>
+      <Stack sx={{ width: "100%", mt: "15px" }}>
+        <Box sx={{ width: "49%" }}>
+          <Box
+            sx={{
+              width: "65%",
+              height: "236px",
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "3%",
+              direction: "ltr",
+            }}
+          >
+            {progress &&
+              progress.map((val, i) => {
+                return (
+                  <Item
+                    key={i}
+                    sx={{
+                      width: "47%",
+                      height: "113px",
+                      flexWrap: "wrap",
+                      borderRadius: 6,
+                      px: "16px",
+                      py: "20px",
+                      bgcolor: theme ? " white" : "#323233",
+                    }}
+                  >
+                    <Stack spacing={1}>
+                      <Box
+                        component={"div"}
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "10px",
+                        }}
+                      >
+                        <Box
+                          component={"div"}
+                          sx={{
+                            width: "40px",
+                            height: "40px",
+                            bgcolor: val.bg,
+                            borderRadius: "10px",
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                          }}
+                        >
+                          <Image
+                            width={20}
+                            height={20}
+                            src={val.image}
+                            alt="icon"
+                          />
+                        </Box>
+                        <Typography
+                          variant="body2"
+                          sx={{
+                            fontSize: "20px",
+                            color: "black",
+                            fontFamily: poppins.style.fontFamily,
+                            color: theme ? "black" : "white",
+                          }}
+                        >
+                          {val.num}
+                        </Typography>
+                      </Box>
+                      <Typography
+                        variant="body2"
+                        sx={{
+                          fontSize: "14px",
+                          color: "#B8B8B8",
+                          fontFamily: poppins.style.fontFamily,
+                          fontWeight: 400,
+                          color: theme ? "black" : "white",
+                        }}
+                      >
+                        {lang ? val.txtEn : val.txtFa}
+                      </Typography>
+                    </Stack>
+                  </Item>
+                );
+              })}
+          </Box>
+        </Box>
+      </Stack>
     </Box>
   );
 }
