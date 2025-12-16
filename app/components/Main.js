@@ -109,7 +109,8 @@ function Main() {
               <Box
                 sx={{
                   position: "absolute",
-                  bottom: "0",
+                  bottom: {xs: 0,sm: -40},
+                  transform: lang ? "" : "scaleX(-1)",
                   right: lang ? 0 : "auto",
                   left: lang ? "auto" : 0,
                 }}
@@ -238,15 +239,14 @@ function Main() {
               bgcolor: theme ? " white" : "#323233",
             }}
           >
-            <Box sx={{ width: "100%",  height: "100%" }}>
+            <Box sx={{ width: "100%", height: "100%" }}>
               <Calendar />
             </Box>
           </Item>
         </Grid>
-        <Grid size={{ xs: 6, md: 3 }}>
-          <Item>xs=6 md=8</Item>
-        </Grid>
       </Grid>
+      {/* end grid */}
+      <Stack></Stack>
     </Box>
   );
 }

@@ -57,7 +57,7 @@ function Sidebar() {
     <Stack
       sx={{
         px: "17px",
-        py: 4,
+        pt: 4,
         width: "100%",
         height: "110%",
         bgcolor: "black",
@@ -65,6 +65,7 @@ function Sidebar() {
         borderRadius: 6,
         position: "relative",
         zIndex: 50,
+        pb: { xs: 7, md: 3 },
       }}
     >
       {/* up side */}
