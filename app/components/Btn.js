@@ -2,10 +2,21 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import { color, flex, gap, height, width } from "@mui/system";
 import { Inter } from "next/font/google";
+import { Alexandria, Urbanist } from "next/font/google";
+import { useContext } from "react";
+import myTheme from "../db/db";
 
 const inter = Inter({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
+const urbanist = Urbanist({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
+
+const alexandria = Alexandria({
+  subsets: ["arabic"],
 });
 
 export default function IconLabelButtons({
@@ -15,6 +26,7 @@ export default function IconLabelButtons({
   textColor,
   iconColor,
 }) {
+  const { lang } = useContext(myTheme);
   return (
     <Stack direction="row" sx={{ gap: "14px", transition: "all 0.4s" }}>
       <Button
@@ -47,6 +59,9 @@ export default function IconLabelButtons({
           gap: 2,
           fontSize: "18px",
           transition: "all 0.4s",
+          fontFamily: lang
+            ? urbanist.style.fontFamily
+            : alexandria.style.fontFamily,
           "&:hover": {
             bgcolor: "#a5a5a5b0",
             color: "black",

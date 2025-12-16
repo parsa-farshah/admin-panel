@@ -5,11 +5,11 @@ import logo from "../../public/logo.svg";
 import Stack from "@mui/material/Stack";
 import Btn from "./Btn";
 import { Box, Typography } from "@mui/material";
-import { Urbanist } from "next/font/google";
-import DeleteIcon from "@mui/icons-material/Delete";
+import { Alexandria, Urbanist } from "next/font/google";
 import {
   CalendarMonth,
   Home,
+  Logout,
   Message,
   PeopleAltOutlined,
   PriceChange,
@@ -22,6 +22,10 @@ import myTheme from "../db/db";
 const urbanist = Urbanist({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
+
+const alexandria = Alexandria({
+  subsets: ["arabic"],
 });
 
 function Sidebar() {
@@ -57,7 +61,10 @@ function Sidebar() {
         width: "100%",
         height: "110%",
         bgcolor: "black",
+        display: "block",
         borderRadius: 6,
+        position: "relative",
+        zIndex: 50,
       }}
     >
       {/* up side */}
@@ -80,9 +87,15 @@ function Sidebar() {
           </Stack>
           {/* text */}
           <Typography
-            sx={{ fontWeight: 600, fontSize: "32px", color: "white" }}
+            sx={{
+              fontWeight: 600,
+              fontSize: "32px",
+              color: "white",
+              fontFamily: lang
+                ? urbanist.style.fontFamily
+                : alexandria.style.fontFamily,
+            }}
             variant="h4"
-            className={urbanist.className}
           >
             {lang ? "Smansys" : "سمانیس"}
           </Typography>
@@ -121,7 +134,7 @@ function Sidebar() {
       {/* logout */}
       <Box sx={{ height: "10%" }}>
         <Btn
-          Icon={DeleteIcon}
+          Icon={Logout}
           label={lang ? "logOut" : "خارج شدن"}
           backColor={"white"}
           iconColor={"#2F3032"}
