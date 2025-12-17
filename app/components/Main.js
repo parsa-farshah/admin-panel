@@ -369,6 +369,9 @@ function Main() {
                             color: "black",
                             fontFamily: poppins.style.fontFamily,
                             color: theme ? "black" : "white",
+                            fontFamily: lang
+                              ? poppins.style.fontFamily
+                              : alexandria.style.fontFamily,
                           }}
                         >
                           {val.num}
@@ -382,6 +385,9 @@ function Main() {
                           fontFamily: poppins.style.fontFamily,
                           fontWeight: 400,
                           color: theme ? "#797979" : "#d3d0d0ab",
+                          fontFamily: lang
+                            ? poppins.style.fontFamily
+                            : alexandria.style.fontFamily,
                         }}
                       >
                         {lang ? val.txtEn : val.txtFa}
