@@ -13,7 +13,7 @@ export default function Calendar() {
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <Box
         sx={{
-          transform: { xs: "scale(1)", md: "scale(0.5)" , lg: "scale(0.7)" },
+          transform: { xs: "scale(1)", md: "scale(0.4)" , lg: "scale(0.7)" },
           transformOrigin: { xs: "center center", md: "top left" },
           width: { xs: "100%", md: 300 },
           overflow: "hidden",

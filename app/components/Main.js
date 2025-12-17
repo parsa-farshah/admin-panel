@@ -23,7 +23,11 @@ import people from "../../public/icons/people.svg";
 import check from "../../public/icons/check.svg";
 import award from "../../public/icons/award.svg";
 import task from "../../public/icons/task.svg";
+import book from "../../public/icons/book.svg";
+import paper from "../../public/icons/paper.svg";
+import video from "../../public/icons/video.svg";
 import NoticeBoard from "../components/NoticeBoard";
+import LongMenu from "./LongMenu";
 
 const settings = {
   width: "100",
@@ -105,7 +109,7 @@ function Main() {
         >
           <Item
             sx={{
-              borderRadius: 3,
+              borderRadius: "24px",
               height: "100%",
               width: "100%",
               bgcolor: theme ? " white" : "#323233",
@@ -168,7 +172,7 @@ function Main() {
         >
           <Item
             sx={{
-              borderRadius: 3,
+              borderRadius: "24px",
               height: "100%",
               width: "100%",
               bgcolor: theme ? " white" : "#323233",
@@ -176,7 +180,10 @@ function Main() {
           >
             <Box sx={{ px: "12px" }}>
               {/* first row */}
-              <Stack direction={"row"} sx={{ justifyContent: "space-between" }}>
+              <Stack
+                direction={"row"}
+                sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}
+              >
                 <Typography
                   sx={{
                     fontSize: 14,
@@ -188,7 +195,10 @@ function Main() {
                 >
                   {lang ? "Attendance" : "حضور و غیاب"}
                 </Typography>
-                <MoreHoriz sx={{ fill: theme ? "black" : "white" }} />
+                {/* <MoreHoriz sx={{ fill: theme ? "black" : "white" }} /> */}
+                <Box sx={{ rotate: "90deg" }}>
+                  <LongMenu />
+                </Box>
               </Stack>
               {/* chart text top */}
               <Stack
@@ -284,7 +294,7 @@ function Main() {
         >
           <Item
             sx={{
-              borderRadius: 3,
+              borderRadius: "24px",
               width: "100%",
               height: "100%",
               bgcolor: theme ? " white" : "#323233",
@@ -297,11 +307,20 @@ function Main() {
         </Grid>
       </Grid>
       {/*------------------------------ end grid ---------------------------*/}
-      <Stack sx={{ width: "100%", mt: "15px" }}>
+      <Stack
+        sx={{
+          width: "100%",
+          height: "164px",
+          mt: "15px",
+          gap: "2%",
+          display: "flex",
+          justifyContent: "space-between",
+          flexDirection: { xs: "column", lg: "row" },
+        }}
+      >
         <Box
           sx={{
-            width: { xs: "100%", md: "49%" },
-            height: "236px",
+            width: { xs: "100%", lg: "49%" },
             display: "flex",
             flexWrap: "wrap",
             justifyContent: "space-between",
@@ -309,8 +328,9 @@ function Main() {
         >
           <Box
             sx={{
-              width: "52%",
+              width: { xs: "100%", sm: "52%" },
               height: "100%",
+              height: "236px",
               display: "flex",
               flexWrap: "wrap",
               justifyContent: "space-between",
@@ -400,8 +420,9 @@ function Main() {
           {/* notice board */}
           <Item
             sx={{
-              width: "46%",
-              height: "100%",
+              width: { xs: "100%", sm: "46%" },
+              mt: { xs: "8px", sm: "0px" },
+              height: "236px",
               flexWrap: "wrap",
               borderRadius: 6,
               px: "8px",
@@ -412,6 +433,106 @@ function Main() {
             <NoticeBoard />
           </Item>
         </Box>
+        {/*------------------------------ Resources -----------------------------*/}
+        <Item
+          sx={{
+            width: { sx: "100%", lg: "35%" },
+            borderRadius: "24px",
+            bgcolor: theme ? " white" : "#323233",
+            mt: { xs: "10px", lg: "0px" },
+            height: "100%",
+          }}
+        >
+          {/* txt */}
+          <Box
+            sx={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              px: "8px",
+            }}
+          >
+            <Typography
+              sx={{
+                fontSize: "14px",
+                color: theme ? "black" : "white",
+                fontFamily: lang
+                  ? poppins.style.fontFamily
+                  : alexandria.style.fontFamily,
+              }}
+            >
+              {lang ? "Notice Board" : "تابلو اعلانات"}
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: "10px",
+                color: theme ? "#797979" : "#d3d0d0ab",
+                fontFamily: lang
+                  ? poppins.style.fontFamily
+                  : alexandria.style.fontFamily,
+              }}
+            >
+              {lang ? "view all" : "مشاهده همه"}
+            </Typography>
+          </Box>
+
+          {/* books */}
+          <Box
+            sx={{
+              width: "100%",
+              mt: "13px",
+              display: "flex",
+              justifyContent: "space-between",
+            }}
+          >
+            {/* books */}
+            <Box sx={{ width: "25%" }}>
+              <Image src={book} alt="book" />
+              <Typography
+                sx={{
+                  mt: "6px",
+                  fontFamily: lang
+                    ? poppins.style.fontFamily
+                    : alexandria.style.fontFamily,
+                  color: theme ? "black" : "white",
+                }}
+              >
+                {lang ? "Books" : "کتاب ها"}
+              </Typography>
+            </Box>
+            {/* videos */}
+            <Box sx={{ width: "25%", height: "104px" }}>
+              <Image src={video} alt="videos" />
+              <Typography
+                sx={{
+                  mt: "6px",
+                  fontFamily: lang
+                    ? poppins.style.fontFamily
+                    : alexandria.style.fontFamily,
+                  color: theme ? "black" : "white",
+                }}
+              >
+                {lang ? "Videos" : "فیلم ها"}
+              </Typography>
+            </Box>
+            {/* papers */}
+            <Box sx={{ width: "25%", height: "104px" }}>
+              <Image src={paper} alt="papers" />
+              <Typography
+                sx={{
+                  mt: "6px",
+                  fontFamily: lang
+                    ? poppins.style.fontFamily
+                    : alexandria.style.fontFamily,
+                  color: theme ? "black" : "white",
+                }}
+              >
+                {lang ? "Papers" : "برگه ها"}
+              </Typography>
+            </Box>
+          </Box>
+        </Item>
       </Stack>
     </Box>
   );
