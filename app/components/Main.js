@@ -23,6 +23,7 @@ import people from "../../public/icons/people.svg";
 import check from "../../public/icons/check.svg";
 import award from "../../public/icons/award.svg";
 import task from "../../public/icons/task.svg";
+import NoticeBoard from "../components/NoticeBoard";
 
 const settings = {
   width: "100",
@@ -177,9 +178,15 @@ function Main() {
               {/* first row */}
               <Stack direction={"row"} sx={{ justifyContent: "space-between" }}>
                 <Typography
-                  sx={{ fontSize: 14, color: theme ? "black" : "white" }}
+                  sx={{
+                    fontSize: 14,
+                    color: theme ? "black" : "white",
+                    fontFamily: lang
+                      ? poppins.style.fontFamily
+                      : alexandria.style.fontFamily,
+                  }}
                 >
-                  Attendance
+                  {lang ? "Attendance" : "حضور و غیاب"}
                 </Typography>
                 <MoreHoriz sx={{ fill: theme ? "black" : "white" }} />
               </Stack>
@@ -202,9 +209,12 @@ function Main() {
                     sx={{
                       fontSize: "12px",
                       color: theme ? "#797979" : "#d3d0d0ab",
+                      fontFamily: lang
+                        ? poppins.style.fontFamily
+                        : alexandria.style.fontFamily,
                     }}
                   >
-                    Absent
+                    {lang ? "Absent" : "غایب"}
                   </Typography>
                 </Stack>
                 {/* right */}
@@ -221,9 +231,12 @@ function Main() {
                     sx={{
                       fontSize: "12px",
                       color: theme ? "#797979" : "#d3d0d0ab",
+                      fontFamily: lang
+                        ? poppins.style.fontFamily
+                        : alexandria.style.fontFamily,
                     }}
                   >
-                    Present
+                    {lang ? "Present" : "حاضر"}
                   </Typography>
                 </Stack>
               </Stack>
@@ -285,14 +298,23 @@ function Main() {
       </Grid>
       {/* end grid */}
       <Stack sx={{ width: "100%", mt: "15px" }}>
-        <Box sx={{ width: "49%" }}>
+        <Box
+          sx={{
+            width: "49%",
+            height: "236px",
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "space-between",
+          }}
+        >
           <Box
             sx={{
-              width: "65%",
-              height: "236px",
+              width: "52%",
+              height: "100%",
               display: "flex",
               flexWrap: "wrap",
-              gap: "3%",
+              justifyContent: "space-between",
+              gap: "2%",
               direction: "ltr",
             }}
           >
@@ -302,7 +324,7 @@ function Main() {
                   <Item
                     key={i}
                     sx={{
-                      width: "47%",
+                      width: "48%",
                       height: "113px",
                       flexWrap: "wrap",
                       borderRadius: 6,
@@ -315,6 +337,7 @@ function Main() {
                       <Box
                         component={"div"}
                         sx={{
+                          width: "100%",
                           display: "flex",
                           alignItems: "center",
                           gap: "10px",
@@ -354,11 +377,11 @@ function Main() {
                       <Typography
                         variant="body2"
                         sx={{
-                          fontSize: "14px",
+                          fontSize: "10px",
                           color: "#B8B8B8",
                           fontFamily: poppins.style.fontFamily,
                           fontWeight: 400,
-                          color: theme ? "black" : "white",
+                          color: theme ? "#797979" : "#d3d0d0ab",
                         }}
                       >
                         {lang ? val.txtEn : val.txtFa}
@@ -368,6 +391,20 @@ function Main() {
                 );
               })}
           </Box>
+          {/* notice board */}
+          <Item
+            sx={{
+              width: "46%",
+              height: "100%",
+              flexWrap: "wrap",
+              borderRadius: 6,
+              px: "8px",
+              py: "20px",
+              bgcolor: theme ? " white" : "#323233",
+            }}
+          >
+            <NoticeBoard />
+          </Item>
         </Box>
       </Stack>
     </Box>
