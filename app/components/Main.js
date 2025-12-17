@@ -296,11 +296,11 @@ function Main() {
           </Item>
         </Grid>
       </Grid>
-      {/* end grid */}
+      {/*------------------------------ end grid ---------------------------*/}
       <Stack sx={{ width: "100%", mt: "15px" }}>
         <Box
           sx={{
-            width: "49%",
+            width: { xs: "100%", md: "49%" },
             height: "236px",
             display: "flex",
             flexWrap: "wrap",
