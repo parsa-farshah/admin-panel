@@ -3,14 +3,11 @@ import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import { Box } from "@mui/material";
+import myTheme from "../db/db";
+import { useContext } from "react";
 
-const options = [
-  "None",
-  "Atria",
-  "Callisto",
-  "Dione",
-  "Ganymede",
-];
+const options = ["None", "Atria", "Callisto", "Dione", "Ganymede"];
 
 const ITEM_HEIGHT = 48;
 
@@ -24,8 +21,9 @@ export default function LongMenu() {
     setAnchorEl(null);
   };
 
+  const { lang, theme } = useContext(myTheme);
   return (
-    <div>
+    <Box>
       <IconButton
         aria-label="more"
         id="long-button"
@@ -52,9 +50,18 @@ export default function LongMenu() {
             },
           },
         }}
+        MenuListProps={{
+          sx: {
+            padding: 0,
+          },
+        }}
       >
         {options.map((option) => (
           <MenuItem
+            sx={{
+              bgcolor: theme ? " white" : "#323233",
+              color: theme ? "black" : "white",
+            }}
             key={option}
             selected={option === "Pyxis"}
             onClick={handleClose}
@@ -63,6 +70,6 @@ export default function LongMenu() {
           </MenuItem>
         ))}
       </Menu>
-    </div>
+    </Box>
   );
 }

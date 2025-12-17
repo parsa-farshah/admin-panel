@@ -28,6 +28,7 @@ import paper from "../../public/icons/paper.svg";
 import video from "../../public/icons/video.svg";
 import NoticeBoard from "../components/NoticeBoard";
 import LongMenu from "./LongMenu";
+import TimeTable from "./TimeTable";
 
 const settings = {
   width: "100",
@@ -182,7 +183,11 @@ function Main() {
               {/* first row */}
               <Stack
                 direction={"row"}
-                sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                }}
               >
                 <Typography
                   sx={{
@@ -310,14 +315,15 @@ function Main() {
       <Stack
         sx={{
           width: "100%",
-          height: "164px",
           mt: "15px",
           gap: "2%",
           display: "flex",
+          flexWrap: "wrap",
           justifyContent: "space-between",
           flexDirection: { xs: "column", lg: "row" },
         }}
       >
+        {/*-------------------------- 4 section --------------------------*/}
         <Box
           sx={{
             width: { xs: "100%", lg: "49%" },
@@ -532,6 +538,18 @@ function Main() {
               </Typography>
             </Box>
           </Box>
+        </Item>
+        {/*---------------------------- table time ---------------------------*/}
+        <Item
+          sx={{
+            width: { sx: "100%", lg: "12%" },
+            borderRadius: "24px",
+            bgcolor: theme ? " white" : "#323233",
+            mt: { xs: "10px", lg: "0px" },
+            height: "100%",
+          }}
+        >
+          <TimeTable />
         </Item>
       </Stack>
     </Box>
