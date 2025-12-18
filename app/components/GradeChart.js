@@ -1,5 +1,7 @@
 import Box from "@mui/material/Box";
 import { BarChart } from "@mui/x-charts/BarChart";
+import { useContext } from "react";
+import myTheme from "../db/db";
 
 const uData = [100, 100, 100, 100, 100, 100, 100];
 const pData = [90, 20, 50, 20, 70, 75, 80];
@@ -14,6 +16,7 @@ const xLabels = [
 ];
 
 export default function GradeChart() {
+  const { theme } = useContext(myTheme);
   return (
     <Box sx={{ width: "100%", height: 300 }}>
       <BarChart
@@ -35,6 +38,25 @@ export default function GradeChart() {
         ]}
         xAxis={[{ data: xLabels }]}
         yAxis={[{ width: 50 }]}
+        sx={{
+          "& .MuiChartsAxis-tickLabel": {
+            fill: theme ? "black" : "white",
+            fontSize: "12px",
+            fontWeight: 500,
+          },
+
+          "& .MuiChartsAxis-tick": {
+            stroke: theme ? "black" : "white",
+          },
+          "& .MuiChartsAxis-tickLabel": {
+            fill: theme ? "black" : "white",
+          },
+
+          "& .MuiChartsLegend-label": {
+            fill: theme ? "black" : "white",
+            fontSize: "12px",
+          },
+        }}
       />
     </Box>
   );

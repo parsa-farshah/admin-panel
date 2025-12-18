@@ -35,8 +35,22 @@ export default function TestScore() {
         ]}
         xAxis={[{ scaleType: "point", data: xLabels }]}
         sx={{
-          [`& .${lineElementClasses.root}`]: {
-            display: "none",
+          "& .MuiChartsAxis-tickLabel": {
+            fill: theme ? "black" : "white",
+            fontSize: "12px",
+            fontWeight: 500,
+          },
+
+          "& .MuiChartsAxis-tick": {
+            stroke: theme ? "black" : "white",
+          },
+          "& .MuiChartsAxis-tickLabel": {
+            fill: theme ? "black" : "white",
+          },
+
+          "& .MuiChartsLegend-label": {
+            fill: theme ? "black" : "white",
+            fontSize: "12px",
           },
         }}
         margin={margin}

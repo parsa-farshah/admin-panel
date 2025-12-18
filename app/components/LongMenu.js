@@ -32,7 +32,7 @@ export default function LongMenu() {
         aria-haspopup="true"
         onClick={handleClick}
       >
-        <MoreVertIcon />
+        <MoreVertIcon sx={{ color: theme ? "black" : "white" }} />
       </IconButton>
       <Menu
         id="long-menu"
