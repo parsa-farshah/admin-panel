@@ -1,15 +1,31 @@
 import { Box, Stack, Typography } from "@mui/material";
 import React, { useContext } from "react";
 import myTheme from "../db/db";
+import { Alexandria, Urbanist } from "next/font/google";
+
+const urbanist = Urbanist({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
+
+const alexandria = Alexandria({
+  subsets: ["arabic"],
+});
 
 function TimeTable() {
   const { lang, theme } = useContext(myTheme);
   return (
     <Stack sx={{ width: "100%", height: "100%", px: "17px", py: "20px" }}>
       <Typography
-        sx={{ textAlign: "center", color: theme ? "black" : "white" }}
+        sx={{
+          textAlign: "center",
+          color: theme ? "black" : "white",
+          fontFamily: lang
+            ? urbanist.style.fontFamily
+            : alexandria.style.fontFamily,
+        }}
       >
-        Monday
+        {lang ? "Monday" : "دوشنبه"}
       </Typography>
       <Box
         component={"div"}
@@ -25,18 +41,24 @@ function TimeTable() {
           textAlign: "center",
           color: theme ? "#797979" : "#d3d0d0ab",
           my: "7px",
+          fontFamily: lang
+            ? urbanist.style.fontFamily
+            : alexandria.style.fontFamily,
         }}
       >
-        Tamil
+        {lang ? "Tamil" : "تامیلی"}
       </Typography>
       <Typography
         sx={{
           textAlign: "center",
           color: theme ? "#797979" : "#d3d0d0ab",
           my: "7px",
+          fontFamily: lang
+            ? urbanist.style.fontFamily
+            : alexandria.style.fontFamily,
         }}
       >
-        English
+        {lang ? "English" : "انگلیسی"}
       </Typography>
       <Typography
         sx={{
@@ -47,27 +69,36 @@ function TimeTable() {
           bgcolor: "#D6DAFF",
           fontSize: "8px",
           borderRadius: "24px",
+          fontFamily: lang
+            ? urbanist.style.fontFamily
+            : alexandria.style.fontFamily,
         }}
       >
-        Break
+        {lang ? "Break" : "زنگ تفریح"}
       </Typography>
       <Typography
         sx={{
           textAlign: "center",
           color: theme ? "#797979" : "#d3d0d0ab",
           my: "7px",
+          fontFamily: lang
+            ? urbanist.style.fontFamily
+            : alexandria.style.fontFamily,
         }}
       >
-        math
+        {lang ? "Math" : "ریاضی"}
       </Typography>
       <Typography
         sx={{
           textAlign: "center",
           color: theme ? "#797979" : "#d3d0d0ab",
           my: "7px",
+          fontFamily: lang
+            ? urbanist.style.fontFamily
+            : alexandria.style.fontFamily,
         }}
       >
-        Science
+        {lang ? "Science" : "علوم"}
       </Typography>
       <Typography
         sx={{
@@ -78,27 +109,36 @@ function TimeTable() {
           bgcolor: "#FFE7CA",
           fontSize: "8px",
           borderRadius: "24px",
+          fontFamily: lang
+            ? urbanist.style.fontFamily
+            : alexandria.style.fontFamily,
         }}
       >
-        Lunch
+        {lang ? "Lunch" : "ناهار"}
       </Typography>
       <Typography
         sx={{
           textAlign: "center",
           color: theme ? "#797979" : "#d3d0d0ab",
           my: "7px",
+          fontFamily: lang
+            ? urbanist.style.fontFamily
+            : alexandria.style.fontFamily,
         }}
       >
-        Social
+        {lang ? "Social" : "مطالعات اجتماعی"}
       </Typography>
       <Typography
         sx={{
           textAlign: "center",
           color: theme ? "#797979" : "#d3d0d0ab",
           my: "7px",
+          fontFamily: lang
+            ? urbanist.style.fontFamily
+            : alexandria.style.fontFamily,
         }}
       >
-        CS
+        {lang ? "CS" : "علوم کامپیوتر"}
       </Typography>
       <Typography
         sx={{
@@ -109,27 +149,36 @@ function TimeTable() {
           bgcolor: "#D6DAFF",
           fontSize: "8px",
           borderRadius: "24px",
+          fontFamily: lang
+            ? urbanist.style.fontFamily
+            : alexandria.style.fontFamily,
         }}
       >
-        Break
+        {lang ? "Break" : "زنگ تفریح"}
       </Typography>
       <Typography
         sx={{
           textAlign: "center",
           color: theme ? "#797979" : "#d3d0d0ab",
           my: "7px",
+          fontFamily: lang
+            ? urbanist.style.fontFamily
+            : alexandria.style.fontFamily,
         }}
       >
-        Tamil
+        {lang ? "Tamil" : "تامیلی"}
       </Typography>
       <Typography
         sx={{
           textAlign: "center",
           color: theme ? "#797979" : "#d3d0d0ab",
           my: "7px",
+          fontFamily: lang
+            ? urbanist.style.fontFamily
+            : alexandria.style.fontFamily,
         }}
       >
-        English
+        {lang ? "English" : "انگلیسی"}
       </Typography>
     </Stack>
   );
