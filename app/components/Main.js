@@ -29,6 +29,8 @@ import video from "../../public/icons/video.svg";
 import NoticeBoard from "../components/NoticeBoard";
 import LongMenu from "./LongMenu";
 import TimeTable from "./TimeTable";
+import TestScore from "./TestScore";
+import GradeChart from "./GradeChart";
 
 const settings = {
   width: "100",
@@ -323,226 +325,330 @@ function Main() {
           flexDirection: { xs: "column", lg: "row" },
         }}
       >
-        {/*-------------------------- 4 section --------------------------*/}
+        {/*-------------------------------- wrapper left side ------------------*/}
         <Box
           sx={{
-            width: { xs: "100%", lg: "49%" },
+            width: { xs: "100%", lg: "84%" },
             display: "flex",
             flexWrap: "wrap",
             justifyContent: "space-between",
+            alignItems: "start",
+            flexDirection: { xs: "column", lg: "row" },
+            gap: "2%",
           }}
         >
+          {/*-------------------------- 4 section --------------------------*/}
           <Box
             sx={{
-              width: { xs: "100%", sm: "52%" },
-              height: "100%",
-              height: "236px",
+              width: { xs: "100%", lg: "49%" },
               display: "flex",
               flexWrap: "wrap",
               justifyContent: "space-between",
-              gap: "2%",
-              direction: "ltr",
             }}
           >
-            {progress &&
-              progress.map((val, i) => {
-                return (
-                  <Item
-                    key={i}
-                    sx={{
-                      width: "48%",
-                      height: "113px",
-                      flexWrap: "wrap",
-                      borderRadius: 6,
-                      px: "16px",
-                      py: "20px",
-                      bgcolor: theme ? " white" : "#323233",
-                    }}
-                  >
-                    <Stack spacing={1}>
-                      <Box
-                        component={"div"}
-                        sx={{
-                          width: "100%",
-                          display: "flex",
-                          alignItems: "center",
-                          gap: "10px",
-                        }}
-                      >
+            <Box
+              sx={{
+                width: { xs: "100%", sm: "52%" },
+                height: "100%",
+                height: "264px",
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "space-between",
+                gap: "2%",
+                direction: "ltr",
+              }}
+            >
+              {progress &&
+                progress.map((val, i) => {
+                  return (
+                    <Item
+                      key={i}
+                      sx={{
+                        width: "48%",
+                        height: "49%",
+                        flexWrap: "wrap",
+                        justifyContent: "space-between",
+                        borderRadius: 6,
+                        px: "16px",
+                        py: "20px",
+                        bgcolor: theme ? " white" : "#323233",
+                      }}
+                    >
+                      <Stack spacing={1}>
                         <Box
                           component={"div"}
                           sx={{
-                            width: "40px",
-                            height: "40px",
-                            bgcolor: val.bg,
-                            borderRadius: "10px",
+                            width: "100%",
                             display: "flex",
-                            justifyContent: "center",
                             alignItems: "center",
+                            gap: "10px",
                           }}
                         >
-                          <Image
-                            width={20}
-                            height={20}
-                            src={val.image}
-                            alt="icon"
-                          />
+                          <Box
+                            component={"div"}
+                            sx={{
+                              width: "40px",
+                              height: "40px",
+                              bgcolor: val.bg,
+                              borderRadius: "10px",
+                              display: "flex",
+                              justifyContent: "center",
+                              alignItems: "center",
+                            }}
+                          >
+                            <Image
+                              width={20}
+                              height={20}
+                              src={val.image}
+                              alt="icon"
+                            />
+                          </Box>
+                          <Typography
+                            variant="body2"
+                            sx={{
+                              fontSize: "20px",
+                              color: "black",
+                              fontFamily: poppins.style.fontFamily,
+                              color: theme ? "black" : "white",
+                              fontFamily: lang
+                                ? poppins.style.fontFamily
+                                : alexandria.style.fontFamily,
+                            }}
+                          >
+                            {val.num}
+                          </Typography>
                         </Box>
                         <Typography
                           variant="body2"
                           sx={{
-                            fontSize: "20px",
-                            color: "black",
+                            fontSize: "10px",
+                            color: "#B8B8B8",
                             fontFamily: poppins.style.fontFamily,
-                            color: theme ? "black" : "white",
+                            fontWeight: 400,
+                            color: theme ? "#797979" : "#d3d0d0ab",
                             fontFamily: lang
                               ? poppins.style.fontFamily
                               : alexandria.style.fontFamily,
                           }}
                         >
-                          {val.num}
+                          {lang ? val.txtEn : val.txtFa}
                         </Typography>
-                      </Box>
-                      <Typography
-                        variant="body2"
-                        sx={{
-                          fontSize: "10px",
-                          color: "#B8B8B8",
-                          fontFamily: poppins.style.fontFamily,
-                          fontWeight: 400,
-                          color: theme ? "#797979" : "#d3d0d0ab",
-                          fontFamily: lang
-                            ? poppins.style.fontFamily
-                            : alexandria.style.fontFamily,
-                        }}
-                      >
-                        {lang ? val.txtEn : val.txtFa}
-                      </Typography>
-                    </Stack>
-                  </Item>
-                );
-              })}
+                      </Stack>
+                    </Item>
+                  );
+                })}
+            </Box>
+            {/* notice board */}
+            <Item
+              sx={{
+                width: { xs: "100%", sm: "46%" },
+                mt: { xs: "8px", sm: "0px" },
+                height: "264px",
+                flexWrap: "wrap",
+                borderRadius: 6,
+                px: "8px",
+                py: "20px",
+                bgcolor: theme ? " white" : "#323233",
+              }}
+            >
+              <NoticeBoard />
+            </Item>
           </Box>
-          {/* notice board */}
+          {/*------------------------------ Resources -----------------------------*/}
           <Item
             sx={{
-              width: { xs: "100%", sm: "46%" },
-              mt: { xs: "8px", sm: "0px" },
-              height: "236px",
+              width: { xs: "100%", lg: "49%" },
+              display: "flex",
               flexWrap: "wrap",
-              borderRadius: 6,
-              px: "8px",
-              py: "20px",
+              justifyContent: "space-between",
+              borderRadius: "24px",
               bgcolor: theme ? " white" : "#323233",
+              mt: { xs: "10px", lg: "0px" },
+              height: "264px",
             }}
           >
-            <NoticeBoard />
+            {/* txt */}
+            <Box
+              sx={{
+                width: "100%",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                px: "8px",
+              }}
+            >
+              <Typography
+                sx={{
+                  fontSize: "14px",
+                  color: theme ? "black" : "white",
+                  fontFamily: lang
+                    ? poppins.style.fontFamily
+                    : alexandria.style.fontFamily,
+                }}
+              >
+                {lang ? "Resources" : "منبع ها"}
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: "10px",
+                  color: theme ? "#797979" : "#d3d0d0ab",
+                  fontFamily: lang
+                    ? poppins.style.fontFamily
+                    : alexandria.style.fontFamily,
+                }}
+              >
+                {lang ? "view all" : "مشاهده همه"}
+              </Typography>
+            </Box>
+
+            {/* books */}
+            <Box
+              sx={{
+                width: "100%",
+                mt: "13px",
+                display: "flex",
+                justifyContent: "space-between",
+              }}
+            >
+              {/* books */}
+              <Box
+                sx={{
+                  width: "25%",
+                  height: "104px",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <Image src={book} alt="book" />
+                <Typography
+                  sx={{
+                    mt: "6px",
+                    fontFamily: lang
+                      ? poppins.style.fontFamily
+                      : alexandria.style.fontFamily,
+                    color: theme ? "black" : "white",
+                  }}
+                >
+                  {lang ? "Books" : "کتاب ها"}
+                </Typography>
+              </Box>
+              {/* videos */}
+              <Box
+                sx={{
+                  width: "25%",
+                  height: "104px",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <Image src={video} alt="videos" />
+                <Typography
+                  sx={{
+                    mt: "6px",
+                    fontFamily: lang
+                      ? poppins.style.fontFamily
+                      : alexandria.style.fontFamily,
+                    color: theme ? "black" : "white",
+                  }}
+                >
+                  {lang ? "Videos" : "فیلم ها"}
+                </Typography>
+              </Box>
+              {/* papers */}
+              <Box
+                sx={{
+                  width: "25%",
+                  height: "104px",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <Image src={paper} alt="papers" />
+                <Typography
+                  sx={{
+                    mt: "6px",
+                    fontFamily: lang
+                      ? poppins.style.fontFamily
+                      : alexandria.style.fontFamily,
+                    color: theme ? "black" : "white",
+                  }}
+                >
+                  {lang ? "Papers" : "برگه ها"}
+                </Typography>
+              </Box>
+            </Box>
+          </Item>
+          {/*----------------------------- text score -------------------------*/}
+          <Item
+            sx={{
+              width: { xs: "100%", lg: "45%" },
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "space-between",
+              borderRadius: "24px",
+              bgcolor: theme ? " white" : "#323233",
+              mt: { xs: "10px", lg: "0px" },
+              height: "350px",
+            }}
+          >
+            <Typography
+              sx={{
+                px: "10%",
+                py: "10px",
+                fontSize: "20px",
+                fontFamily: lang
+                  ? poppins.style.fontFamily
+                  : alexandria.style.fontFamily,
+                color: theme ? "black" : "white",
+              }}
+            >
+              {lang ? "Test Score activity" : "وضعیت نمرات آزمون"}
+            </Typography>
+            <Box sx={{ width: "100%" }}>
+              <TestScore />
+            </Box>
+          </Item>
+          {/*----------------------------------- grade --------------------------*/}
+          <Item
+            sx={{
+              width: { xs: "100%", lg: "53%" },
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "space-between",
+              borderRadius: "24px",
+              bgcolor: theme ? " white" : "#323233",
+              mt: { xs: "10px", lg: "0px" },
+              height: "350px",
+            }}
+          >
+            <Typography
+              sx={{
+                px: "10%",
+                py: "10px",
+                fontSize: "20px",
+                fontFamily: lang
+                  ? poppins.style.fontFamily
+                  : alexandria.style.fontFamily,
+                color: theme ? "black" : "white",
+              }}
+            >
+              {lang ? "Grade by Subject" : "نمره بر اساس درس"}
+            </Typography>
+            <Box sx={{ width: "100%" }}>
+              <GradeChart />
+            </Box>
           </Item>
         </Box>
-        {/*------------------------------ Resources -----------------------------*/}
-        <Item
-          sx={{
-            width: { sx: "100%", lg: "35%" },
-            borderRadius: "24px",
-            bgcolor: theme ? " white" : "#323233",
-            mt: { xs: "10px", lg: "0px" },
-            height: "100%",
-          }}
-        >
-          {/* txt */}
-          <Box
-            sx={{
-              width: "100%",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              px: "8px",
-            }}
-          >
-            <Typography
-              sx={{
-                fontSize: "14px",
-                color: theme ? "black" : "white",
-                fontFamily: lang
-                  ? poppins.style.fontFamily
-                  : alexandria.style.fontFamily,
-              }}
-            >
-              {lang ? "Notice Board" : "تابلو اعلانات"}
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: "10px",
-                color: theme ? "#797979" : "#d3d0d0ab",
-                fontFamily: lang
-                  ? poppins.style.fontFamily
-                  : alexandria.style.fontFamily,
-              }}
-            >
-              {lang ? "view all" : "مشاهده همه"}
-            </Typography>
-          </Box>
-
-          {/* books */}
-          <Box
-            sx={{
-              width: "100%",
-              mt: "13px",
-              display: "flex",
-              justifyContent: "space-between",
-            }}
-          >
-            {/* books */}
-            <Box sx={{ width: "25%" }}>
-              <Image src={book} alt="book" />
-              <Typography
-                sx={{
-                  mt: "6px",
-                  fontFamily: lang
-                    ? poppins.style.fontFamily
-                    : alexandria.style.fontFamily,
-                  color: theme ? "black" : "white",
-                }}
-              >
-                {lang ? "Books" : "کتاب ها"}
-              </Typography>
-            </Box>
-            {/* videos */}
-            <Box sx={{ width: "25%", height: "104px" }}>
-              <Image src={video} alt="videos" />
-              <Typography
-                sx={{
-                  mt: "6px",
-                  fontFamily: lang
-                    ? poppins.style.fontFamily
-                    : alexandria.style.fontFamily,
-                  color: theme ? "black" : "white",
-                }}
-              >
-                {lang ? "Videos" : "فیلم ها"}
-              </Typography>
-            </Box>
-            {/* papers */}
-            <Box sx={{ width: "25%", height: "104px" }}>
-              <Image src={paper} alt="papers" />
-              <Typography
-                sx={{
-                  mt: "6px",
-                  fontFamily: lang
-                    ? poppins.style.fontFamily
-                    : alexandria.style.fontFamily,
-                  color: theme ? "black" : "white",
-                }}
-              >
-                {lang ? "Papers" : "برگه ها"}
-              </Typography>
-            </Box>
-          </Box>
-        </Item>
         {/*---------------------------- table time ---------------------------*/}
         <Item
           sx={{
-            width: { sx: "100%", lg: "12%" },
+            width: { sx: "100%", lg: "14%" },
             borderRadius: "24px",
             bgcolor: theme ? " white" : "#323233",
             mt: { xs: "10px", lg: "0px" },
