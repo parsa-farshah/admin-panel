@@ -10,6 +10,12 @@ import {
   Typography,
 } from "@mui/material";
 import { useRouter } from "next/navigation";
+import { Urbanist } from "next/font/google";
+
+const urbanist = Urbanist({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+});
 
 function SignIn() {
   const [userName, setUserName] = React.useState("");
@@ -84,6 +90,7 @@ function SignIn() {
           left: "-100%",
           zIndex: 50,
           transition: "all 0.4s",
+          fontFamily: urbanist.style.fontFamily,
         }}
       >
         Email or Password Wrong
@@ -101,6 +108,7 @@ function SignIn() {
           left: "-100%",
           zIndex: 50,
           transition: "all 0.4s",
+          fontFamily: urbanist.style.fontFamily,
         }}
       >
         This is a filled success Alert.
@@ -113,7 +121,14 @@ function SignIn() {
           p: { xs: "7%", md: "2%" },
         }}
       >
-        <Typography variant="h5" sx={{ color: "white" }}>
+        <Typography
+          variant="h5"
+          sx={{
+            color: "white",
+            fontFamily: urbanist.style.fontFamily,
+            fontWeight: 800,
+          }}
+        >
           Login
         </Typography>
         <Box sx={{ mt: "50px" }}>
@@ -126,7 +141,7 @@ function SignIn() {
             sx={{
               width: "100%",
               color: "black",
-
+              fontFamily: urbanist.style.fontFamily,
               "& label": {
                 color: "white",
               },
@@ -162,6 +177,7 @@ function SignIn() {
               width: "100%",
               color: "black",
               mt: { xs: "30px", md: "20px" },
+              fontFamily: urbanist.style.fontFamily,
 
               "& label": {
                 color: "white",
@@ -196,6 +212,7 @@ function SignIn() {
               py: "10px",
               color: "white",
               borderColor: "white",
+              fontFamily: urbanist.style.fontFamily,
               "&:hover": {
                 borderColor: "white",
                 backgroundColor: "rgba(255,255,255,0.08)",
@@ -216,6 +233,7 @@ function SignIn() {
                 sx={{
                   borderColor: "white",
                   color: "white",
+                  fontFamily: urbanist.style.fontFamily,
 
                   "&.Mui-checked": {
                     color: "white",
@@ -231,6 +249,7 @@ function SignIn() {
               color: "white",
               borderColor: "white",
               mt: { xs: "30px", md: "20px" },
+              fontFamily: urbanist.style.fontFamily,
             }}
           />
         </Box>
