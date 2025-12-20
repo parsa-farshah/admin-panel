@@ -1,7 +1,7 @@
 "use client";
 import { LineChart, lineElementClasses } from "@mui/x-charts/LineChart";
 import Box from "@mui/material/Box";
-import myTheme from "../db/db";
+import { myTheme } from "@/app/db/Db";
 import { useContext, useEffect, useState } from "react";
 
 const margin = { right: 24 };
@@ -33,7 +33,21 @@ export default function TestScore() {
             color: "#ffae41",
           },
         ]}
-        xAxis={[{ scaleType: "point", data: xLabels }]}
+        xAxis={[
+          {
+            scaleType: "point",
+            data: xLabels,
+            disableLine: true,
+            disableTicks: true,
+          },
+        ]}
+        yAxis={[
+          {
+            disableLine: true,
+            disableTicks: true,
+            tickLabelStyle: { display: "none" },
+          },
+        ]}
         sx={{
           "& .MuiChartsAxis-tickLabel": {
             fill: theme ? "black" : "white",

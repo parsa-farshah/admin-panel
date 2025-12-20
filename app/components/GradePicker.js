@@ -2,7 +2,7 @@ import * as React from "react";
 import FormControl from "@mui/material/FormControl";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
-import myTheme from "../db/db";
+import { myTheme } from "@/app/db/Db";
 
 export default function GradePicker() {
   const { theme, lang } = React.useContext(myTheme);

@@ -14,7 +14,7 @@ import Paper from "@mui/material/Paper";
 import { Alexandria, Poppins } from "next/font/google";
 import Image from "next/image";
 import ashwin from "../../public/ashwin.svg";
-import myTheme from "../db/db";
+import { myTheme } from "@/app/db/Db";
 import { MoreHoriz } from "@mui/icons-material";
 import { Gauge, gaugeClasses } from "@mui/x-charts/Gauge";
 import GradePicker from "./GradePicker";

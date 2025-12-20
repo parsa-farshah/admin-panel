@@ -5,7 +5,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { StaticDatePicker } from "@mui/x-date-pickers/StaticDatePicker";
 import { Box } from "@mui/material";
 import { useContext } from "react";
-import myTheme from "../db/db";
+import { myTheme } from "@/app/db/Db";
 
 export default function Calendar() {
   const { theme, lang } = useContext(myTheme);
@@ -13,7 +13,7 @@ export default function Calendar() {
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <Box
         sx={{
-          transform: { xs: "scale(1)", md: "scale(0.4)" , lg: "scale(0.7)" },
+          transform: { xs: "scale(1)", md: "scale(0.4)", lg: "scale(0.7)" },
           transformOrigin: { xs: "center center", md: "top left" },
           width: { xs: "100%", md: 300 },
           overflow: "hidden",

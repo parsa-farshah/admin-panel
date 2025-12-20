@@ -1,6 +1,6 @@
 import { Box, Stack, Typography } from "@mui/material";
 import React, { useContext } from "react";
-import myTheme from "../db/db";
+import { myTheme } from "@/app/db/Db";
 import { Alexandria, Urbanist } from "next/font/google";
 
 const urbanist = Urbanist({
@@ -67,7 +67,7 @@ function TimeTable() {
           my: "3px",
           width: "100%",
           bgcolor: "#D6DAFF",
-          fontSize: "8px",
+          fontSize: { xs: "18px", lg: "8px" },
           borderRadius: "24px",
           fontFamily: lang
             ? urbanist.style.fontFamily
@@ -107,7 +107,7 @@ function TimeTable() {
           my: "3px",
           width: "100%",
           bgcolor: "#FFE7CA",
-          fontSize: "8px",
+          fontSize: { xs: "18px", lg: "8px" },
           borderRadius: "24px",
           fontFamily: lang
             ? urbanist.style.fontFamily
@@ -147,7 +147,7 @@ function TimeTable() {
           my: "3px",
           width: "100%",
           bgcolor: "#D6DAFF",
-          fontSize: "8px",
+          fontSize: { xs: "18px", lg: "8px" },
           borderRadius: "24px",
           fontFamily: lang
             ? urbanist.style.fontFamily
@@ -179,6 +179,70 @@ function TimeTable() {
         }}
       >
         {lang ? "English" : "انگلیسی"}
+      </Typography>
+      <Typography
+        sx={{
+          textAlign: "center",
+          color: "#6479FF",
+          my: "3px",
+          width: "100%",
+          bgcolor: "#D6DAFF",
+          fontSize: { xs: "18px", lg: "8px" },
+          borderRadius: "24px",
+          fontFamily: lang
+            ? urbanist.style.fontFamily
+            : alexandria.style.fontFamily,
+        }}
+      >
+        {lang ? "Break" : "زنگ تفریح"}
+      </Typography>
+      <Typography
+        sx={{
+          textAlign: "center",
+          color: theme ? "#797979" : "#d3d0d0ab",
+          my: "7px",
+          fontFamily: lang
+            ? urbanist.style.fontFamily
+            : alexandria.style.fontFamily,
+        }}
+      >
+        {lang ? "Social" : "مطالعات اجتماعی"}
+      </Typography>
+      <Typography
+        sx={{
+          textAlign: "center",
+          color: theme ? "#797979" : "#d3d0d0ab",
+          my: "7px",
+          fontFamily: lang
+            ? urbanist.style.fontFamily
+            : alexandria.style.fontFamily,
+        }}
+      >
+        {lang ? "CS" : "علوم کامپیوتر"}
+      </Typography>
+      <Typography
+        sx={{
+          textAlign: "center",
+          color: theme ? "#797979" : "#d3d0d0ab",
+          my: "7px",
+          fontFamily: lang
+            ? urbanist.style.fontFamily
+            : alexandria.style.fontFamily,
+        }}
+      >
+        {lang ? "Social" : "مطالعات اجتماعی"}
+      </Typography>
+      <Typography
+        sx={{
+          textAlign: "center",
+          color: theme ? "#797979" : "#d3d0d0ab",
+          my: "7px",
+          fontFamily: lang
+            ? urbanist.style.fontFamily
+            : alexandria.style.fontFamily,
+        }}
+      >
+        {lang ? "CS" : "علوم کامپیوتر"}
       </Typography>
     </Stack>
   );

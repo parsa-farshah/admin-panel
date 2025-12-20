@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import React, { useContext } from "react";
-import myTheme from "../db/db";
+import { myTheme } from "@/app/db/Db";
 import notificationpurple from "../../public/icons/notification.svg";
 import notificationorange from "../../public/icons/notificationOrange.svg";
 import Image from "next/image";

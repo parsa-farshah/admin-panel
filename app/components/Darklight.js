@@ -1,7 +1,7 @@
 import Stack from "@mui/material/Stack";
 import IconButton from "@mui/material/IconButton";
 import { use, useContext, useState } from "react";
-import myTheme from "../db/db";
+import { myTheme } from "@/app/db/Db";
 
 export default function Darklight({ IconName, themeChange }) {
   const { theme } = use(myTheme);

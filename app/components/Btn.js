@@ -4,7 +4,8 @@ import { color, flex, gap, height, width } from "@mui/system";
 import { Inter } from "next/font/google";
 import { Alexandria, Urbanist } from "next/font/google";
 import { useContext } from "react";
-import myTheme from "../db/db";
+import { myTheme } from "@/app/db/Db";
+import Link from "next/link";
 
 const inter = Inter({
   subsets: ["latin"],

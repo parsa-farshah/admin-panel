@@ -23,7 +23,7 @@ import Darklight from "./Darklight";
 import Image from "next/image";
 import parsa from "../../public/parsa.png";
 import SearchIcon from "@mui/icons-material/Search";
-import myTheme from "../db/db";
+import { myTheme } from "@/app/db/Db";
 import { Alexandria, Urbanist } from "next/font/google";
 
 const urbanist = Urbanist({

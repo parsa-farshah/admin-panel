@@ -4,7 +4,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { Box } from "@mui/material";
-import myTheme from "../db/db";
+import { myTheme } from "@/app/db/Db";
 import { useContext } from "react";
 
 const options = ["None", "Atria", "Callisto", "Dione", "Ganymede"];
