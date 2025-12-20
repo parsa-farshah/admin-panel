@@ -21,7 +21,6 @@ import {
 } from "@mui/icons-material";
 import Darklight from "./Darklight";
 import Image from "next/image";
-import parsa from "../../public/images/parsa.png";
 import SearchIcon from "@mui/icons-material/Search";
 import { myTheme } from "@/app/db/Db";
 import { Alexandria, Urbanist } from "next/font/google";
@@ -226,7 +225,7 @@ function Header({
           <Image
             fill
             style={{ objectFit: "cover", width: "100%", height: "100%" }}
-            src={parsa}
+            src="/parsa.png"
             alt="profile"
           />
         </Box>
