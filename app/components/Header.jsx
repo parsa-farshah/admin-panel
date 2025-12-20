@@ -21,7 +21,7 @@ import {
 } from "@mui/icons-material";
 import Darklight from "./Darklight";
 import Image from "next/image";
-import parsa from "../../public/parsa.png";
+import parsa from "../../public/images/parsa.png";
 import SearchIcon from "@mui/icons-material/Search";
 import { myTheme } from "@/app/db/Db";
 import { Alexandria, Urbanist } from "next/font/google";
