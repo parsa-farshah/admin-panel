@@ -229,7 +229,7 @@ function Header({
             src={parsa}
             alt="profile"
           /> */}
-          <Image width={100} height={100} src={parsa.src} alt="parsa" />
+          <Image src="/icons/parsa.svg" width={40} height={40} alt="parsa" />
         </Box>
       </Stack>
     </Stack>
