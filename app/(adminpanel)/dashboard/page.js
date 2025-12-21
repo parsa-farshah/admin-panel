@@ -81,9 +81,10 @@ export default function Home() {
             bgDash={"white"}
             bgAna={""}
             bgLog={"white"}
-            onSelect={"white"}
-            iconSelect={"#2F3032"}
-            textSelect={"black"}
+            colorAna={"white"}
+            colorDash={"black"}
+            colorLog={"black"}
+            colorStu={"white"}
           />
           {/* close menu */}
           <Box

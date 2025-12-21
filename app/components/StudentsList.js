@@ -31,23 +31,23 @@ const columns = [
   },
 ];
 
-const DataGridCustom = styled(DataGrid)(({ theme }) => ({
+const DataGridCustom = styled(DataGrid)(({ isLight }) => ({
   "& .MuiDataGrid-columnHeaders": {
-    backgroundColor: theme.palette.mode === "light" ? "#f5f5f5" : "#000",
+    backgroundColor: isLight ? "#f5f5f5" : "#000",
   },
 
   "& .MuiDataGrid-columnHeaderTitle": {
-    color: theme.palette.mode === "light" ? "#000" : "#fff",
+    color: isLight ? "#000" : "#fff",
     fontWeight: "bold",
   },
 
   "& .MuiDataGrid-cell": {
-    color: theme.palette.mode === "light" ? "#000" : "#fff",
+    color: isLight ? "#000" : "#fff",
   },
 
   "& .MuiDataGrid-footerContainer": {
-    backgroundColor: theme.palette.mode === "light" ? "#f5f5f5" : "#000",
-    color: theme.palette.mode === "light" ? "#000" : "#fff",
+    backgroundColor: isLight ? "#f5f5f5" : "#000",
+    color: isLight ? "#000" : "#fff",
   },
 }));
 
@@ -89,6 +89,7 @@ export default function StudentsList() {
       <Box sx={{ height: 400 }}>
         <DataGridCustom
           ref={gridData}
+          isLight={theme}
           rows={rows}
           columns={columns}
           headerHeight={56}
