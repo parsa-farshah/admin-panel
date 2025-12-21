@@ -1,11 +1,26 @@
 "use client";
-import StudentsList from "@/app/components/StudentsList";
-import { Box, Fab, Stack } from "@mui/material";
+
+import { Box, Fab, Paper, Stack, styled } from "@mui/material";
 import Sidebar from "@/app/components/Sidebar";
 import { useContext, useState } from "react";
 import { myTheme } from "@/app/db/Db";
 import Header from "@/app/components/Header";
 import { Close } from "@mui/icons-material";
+import GradeChart from "@/app/components/GradeChart";
+import GradePicker from "@/app/components/GradePicker";
+import TestScore from "@/app/components/TestScore";
+import TooltipStyle from "@/app/components/ToolTipChart";
+
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: "#fff",
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: "center",
+  color: (theme.vars ?? theme).palette.text.secondary,
+  ...theme.applyStyles("dark", {
+    backgroundColor: "#1A2027",
+  }),
+}));
 
 function page() {
   const { theme, setTheme, lang, setLang } = useContext(myTheme);
@@ -28,6 +43,7 @@ function page() {
       setDisplay("block");
     }
   };
+
   return (
     <Stack
       // className={lang ? urbanist.className : alexandria.className}
@@ -62,17 +78,17 @@ function page() {
         >
           <Sidebar
             students="./students"
-            analysis="/analysis"
-            dashboard="#"
+            analysis="#"
+            dashboard="./dashboard"
             logout="./"
-            bgStu={"white"}
+            bgStu={""}
             bgDash={""}
-            bgAna={""}
+            bgAna={"white"}
             bgLog={"white"}
-            colorAna={"white"}
+            colorAna={"black"}
             colorDash={"white"}
             colorLog={"black"}
-            colorStu={"black"}
+            colorStu={"white"}
           />
           {/* close menu */}
           <Box
@@ -113,17 +129,17 @@ function page() {
         >
           <Sidebar
             students="./students"
-            analysis="/analysis"
+            analysis="#"
             dashboard="./dashboard"
             logout="./"
-            bgStu={"white"}
+            bgStu={""}
             bgDash={""}
-            bgAna={""}
+            bgAna={"white"}
             bgLog={"white"}
-            colorAna={"white"}
+            colorAna={"black"}
             colorDash={"white"}
             colorLog={"black"}
-            colorStu={"black"}
+            colorStu={"white"}
           />
         </Box>
       )}
@@ -136,9 +152,47 @@ function page() {
           menuMobileBtn={menuMobileBtn}
           dispaly={dispaly}
         />
-        <Box sx={{mt: "40px" }}>
-          <StudentsList />
-        </Box>
+        <Stack
+          direction={"row"}
+          sx={{
+            mt: "40px",
+            justifyContent: "space-between",
+            flexWrap: "wrap",
+            gap: "20px",
+          }}
+        >
+          <Item
+            sx={{
+              borderRadius: "12px",
+              pr: "40px",
+              bgcolor: theme ? " white" : "#323233",
+              width: { xs: "100%", md: "48%" },
+            }}
+          >
+            <GradeChart />
+          </Item>
+          <Item
+            sx={{
+              width: "48%",
+              borderRadius: "12px",
+              pr: "40px",
+              bgcolor: theme ? " white" : "#323233",
+              width: { xs: "100%", md: "48%" },
+            }}
+          >
+            <TestScore />
+          </Item>
+          <Item
+            sx={{
+              width: { xs: "100%", md: "48%" },
+              borderRadius: "12px",
+              pr: "40px",
+              bgcolor: theme ? " white" : "#323233",
+            }}
+          >
+            <TooltipStyle />
+          </Item>
+        </Stack>
       </Box>
     </Stack>
   );

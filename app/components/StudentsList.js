@@ -13,8 +13,6 @@ const columns = [
     field: "username",
     headerName: "UserName",
     width: 150,
-
-    editable: true,
   },
   {
     field: "email",
@@ -27,7 +25,6 @@ const columns = [
     headerName: "password",
     type: "number",
     width: 110,
-    editable: true,
   },
 ];
 
@@ -49,6 +46,7 @@ const DataGridCustom = styled(DataGrid)(({ isLight }) => ({
     backgroundColor: isLight ? "#f5f5f5" : "#000",
     color: isLight ? "#000" : "#fff",
   },
+  borderRadius: "12px"
 }));
 
 export default function StudentsList() {
@@ -92,7 +90,6 @@ export default function StudentsList() {
           isLight={theme}
           rows={rows}
           columns={columns}
-          headerHeight={56}
           initialState={{
             pagination: {
               paginationModel: {

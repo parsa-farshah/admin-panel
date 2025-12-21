@@ -47,12 +47,11 @@ export default function Home() {
         bgcolor: theme ? "#F5F4F9" : "black",
         px: "17px",
         py: 4,
-        height: "100vh",
         justifyContent: "space-between",
         direction: lang ? "ltr" : "rtl",
         transition: "all 0.4s",
         position: "relative",
-        overflowX: "hidden",
+        overflow: "hidden",
         width: { xs: "100%", xl: 1536 },
         mx: { xl: "auto" },
       }}
