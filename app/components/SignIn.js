@@ -18,8 +18,6 @@ const urbanist = Urbanist({
 });
 
 function SignIn() {
-  // const { language, setLanguage, darkLight, setDarkLight } =
-  //   React.useContext(myState);
   const [userName, setUserName] = React.useState("");
   const [pass, setPass] = React.useState("");
   const [flag, setFlag] = React.useState(0);

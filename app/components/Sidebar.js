@@ -35,6 +35,14 @@ function Sidebar({
   analysis = "/dashboard/analysis",
   dashboard = "/dashboard",
   logout = "/",
+  bgAna,
+  bgDash,
+  bgLog,
+  bgStu,
+  colorAna,
+  colorDash,
+  colorLog,
+  colorStu,
 }) {
   const { lang } = useContext(myTheme);
 
@@ -99,27 +107,27 @@ function Sidebar({
             <Btn
               Icon={Home}
               label={lang ? "Dashboard" : "داشبورد"}
-              backColor={"white"}
-              iconColor={"#2F3032"}
-              textColor={"#000000"}
+              backColor={bgDash}
+              iconColor={colorDash}
+              textColor={colorDash}
             />
           </Link>
           <Link href={students}>
             <Btn
               Icon={PeopleAltOutlined}
               label={lang ? "students" : "دانش آموز ها"}
-              backColor={""}
-              iconColor={"white"}
-              textColor={"white"}
+              backColor={bgStu}
+              iconColor={colorStu}
+              textColor={colorStu}
             />
           </Link>
           <Link href={analysis}>
             <Btn
               Icon={BarChart}
               label={lang ? "analysis " : "آنالیز ها"}
-              backColor={""}
-              iconColor={"white"}
-              textColor={"white"}
+              backColor={bgAna}
+              iconColor={colorAna}
+              textColor={colorAna}
             />
           </Link>
         </Stack>
@@ -130,9 +138,9 @@ function Sidebar({
           <Btn
             Icon={Logout}
             label={lang ? "logOut" : "خارج شدن"}
-            backColor={"white"}
-            iconColor={"#2F3032"}
-            textColor={"#000000"}
+            backColor={bgLog}
+            iconColor={colorLog}
+            textColor={colorLog}
           />
         </Link>
       </Box>

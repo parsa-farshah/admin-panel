@@ -1,68 +1,115 @@
-"use client"
+"use client";
 
 import Box from "@mui/material/Box";
 import { DataGrid } from "@mui/x-data-grid";
+import { useContext, useEffect, useRef, useState } from "react";
+import { myTheme } from "../db/Db";
+import styled from "@emotion/styled";
+import { createTheme, ThemeProvider } from "@mui/material";
 
 const columns = [
-  { field: "id", headerName: "ID", width: 90 },
+  { field: "id", headerName: "ID" },
   {
-    field: "firstName",
-    headerName: "First name",
+    field: "username",
+    headerName: "UserName",
+    width: 150,
+
+    editable: true,
+  },
+  {
+    field: "email",
+    headerName: "email",
     width: 150,
     editable: true,
   },
   {
-    field: "lastName",
-    headerName: "Last name",
-    width: 150,
-    editable: true,
-  },
-  {
-    field: "age",
-    headerName: "Age",
+    field: "pass",
+    headerName: "password",
     type: "number",
     width: 110,
     editable: true,
   },
-  {
-    field: "fullName",
-    headerName: "Full name",
-    description: "This column has a value getter and is not sortable.",
-    sortable: false,
-    width: 160,
-    valueGetter: (value, row) => `${row.firstName || ""} ${row.lastName || ""}`,
-  },
 ];
 
-const rows = [
-  { id: 1, lastName: "Snow", firstName: "Jon", age: 14 },
-  { id: 2, lastName: "Lannister", firstName: "Cersei", age: 31 },
-  { id: 3, lastName: "Lannister", firstName: "Jaime", age: 31 },
-  { id: 4, lastName: "Stark", firstName: "Arya", age: 11 },
-  { id: 5, lastName: "Targaryen", firstName: "Daenerys", age: null },
-  { id: 6, lastName: "Melisandre", firstName: null, age: 150 },
-  { id: 7, lastName: "Clifford", firstName: "Ferrara", age: 44 },
-  { id: 8, lastName: "Frances", firstName: "Rossini", age: 36 },
-  { id: 9, lastName: "Roxie", firstName: "Harvey", age: 65 },
-];
+const DataGridCustom = styled(DataGrid)(({ theme }) => ({
+  "& .MuiDataGrid-columnHeaders": {
+    backgroundColor: theme.palette.mode === "light" ? "#f5f5f5" : "#000",
+  },
+
+  "& .MuiDataGrid-columnHeaderTitle": {
+    color: theme.palette.mode === "light" ? "#000" : "#fff",
+    fontWeight: "bold",
+  },
+
+  "& .MuiDataGrid-cell": {
+    color: theme.palette.mode === "light" ? "#000" : "#fff",
+  },
+
+  "& .MuiDataGrid-footerContainer": {
+    backgroundColor: theme.palette.mode === "light" ? "#f5f5f5" : "#000",
+    color: theme.palette.mode === "light" ? "#000" : "#fff",
+  },
+}));
 
 export default function StudentsList() {
+  const gridData = useRef();
+  const { theme, lang } = useContext(myTheme);
+  const [loading, setLoading] = useState(true);
+
+  const [rows, setRows] = useState([]);
+  useEffect(() => {
+    fetch("https://6912e51452a60f10c8232605.mockapi.io/adminpanel", {
+      method: "GET",
+      headers: { "content-type": "application/json" },
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        // handle error
+      })
+      .then((tasks) => {
+        // Do something with the list of tasks
+        setRows(tasks);
+        setLoading(false);
+      })
+      .catch((error) => {
+        // handle error
+      });
+  }, []);
+
+  const themeMain = createTheme({
+    palette: {
+      mode: theme ? "light" : "dark",
+    },
+  });
+
   return (
-    <Box sx={{ height: 400, width: "100%" }}>
-      <DataGrid
-        rows={rows}
-        columns={columns}
-        initialState={{
-          pagination: {
-            paginationModel: {
-              pageSize: 5,
+    <ThemeProvider theme={themeMain}>
+      <Box sx={{ height: 400 }}>
+        <DataGridCustom
+          ref={gridData}
+          rows={rows}
+          columns={columns}
+          headerHeight={56}
+          initialState={{
+            pagination: {
+              paginationModel: {
+                pageSize: 5,
+              },
             },
-          },
-        }}
-        pageSizeOptions={[5]}
-        checkboxSelection
-        disableRowSelectionOnClick
-      />
-    </Box>
+          }}
+          loading={loading}
+          slotProps={{
+            loadingOverlay: {
+              noRowsVariant: "skeleton",
+            },
+          }}
+          pageSizeOptions={[5]}
+          checkboxSelection
+          disableRowSelectionOnClick
+        />
+      </Box>
+    </ThemeProvider>
   );
 }

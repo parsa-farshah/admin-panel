@@ -1,23 +1,12 @@
 "use client";
-import { Box, Fab, Stack } from "@mui/material";
-import Sidebar from "../../components/Sidebar";
-import { Alexandria, Urbanist } from "next/font/google";
-import Header from "../../components/Header";
-import { Close, DragHandle } from "@mui/icons-material";
-import Main from "../../components/Main";
+import StudentsList from "@/app/components/StudentsList";
+import { Box, Stack } from "@mui/material";
+import Sidebar from "@/app/components/Sidebar";
 import { useContext, useState } from "react";
 import { myTheme } from "@/app/db/Db";
+import Header from "@/app/components/Header";
 
-const urbanist = Urbanist({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
-
-const alexandria = Alexandria({
-  subsets: ["arabic"],
-});
-
-export default function Home() {
+function page() {
   const { theme, setTheme, lang, setLang } = useContext(myTheme);
   const [menuMobile, setMenuMobile] = useState(false);
   const [dispaly, setDisplay] = useState("block");
@@ -38,10 +27,9 @@ export default function Home() {
       setDisplay("block");
     }
   };
-
   return (
     <Stack
-      className={lang ? urbanist.className : alexandria.className}
+      // className={lang ? urbanist.className : alexandria.className}
       direction={"row"}
       sx={{
         bgcolor: theme ? "#F5F4F9" : "black",
@@ -77,13 +65,14 @@ export default function Home() {
             analysis="/analysis"
             dashboard="#"
             logout="./"
-            bgStu={""}
-            bgDash={"white"}
+            bgStu={"white"}
+            bgDash={""}
             bgAna={""}
             bgLog={"white"}
-            onSelect={"white"}
-            iconSelect={"#2F3032"}
-            textSelect={"black"}
+            colorAna={"white"}
+            colorDash={"white"}
+            colorLog={"black"}
+            colorStu={"black"}
           />
           {/* close menu */}
           <Box
@@ -125,16 +114,16 @@ export default function Home() {
           <Sidebar
             students="./students"
             analysis="/analysis"
-            dashboard="#"
+            dashboard="./dashboard"
             logout="./"
-            bgStu={""}
-            bgDash={"white"}
+            bgStu={"white"}
+            bgDash={""}
             bgAna={""}
             bgLog={"white"}
             colorAna={"white"}
-            colorDash={"black"}
+            colorDash={"white"}
             colorLog={"black"}
-            colorStu={"white"}
+            colorStu={"black"}
           />
         </Box>
       )}
@@ -147,8 +136,12 @@ export default function Home() {
           menuMobileBtn={menuMobileBtn}
           dispaly={dispaly}
         />
-        <Main />
+        <Box sx={{mt: "40px" }}>
+          <StudentsList />
+        </Box>
       </Box>
     </Stack>
   );
 }
+
+export default page;
