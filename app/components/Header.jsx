@@ -1,4 +1,3 @@
-"use client";
 import ashwin from "../../public/ashwin.svg";
 import {
   Autocomplete,
