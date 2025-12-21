@@ -27,7 +27,7 @@ export default function TooltipStyle() {
       {...params}
       sx={{
         "& .MuiLineElement-root": {
-          strokeWidth: 5, // ✅ کلفت شدن خط
+          strokeWidth: 5, 
         },
       }}
       slotProps={{

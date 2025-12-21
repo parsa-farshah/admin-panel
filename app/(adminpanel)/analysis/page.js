@@ -10,6 +10,7 @@ import GradeChart from "@/app/components/GradeChart";
 import GradePicker from "@/app/components/GradePicker";
 import TestScore from "@/app/components/TestScore";
 import TooltipStyle from "@/app/components/ToolTipChart";
+import TitanicPie from "@/app/components/TitanicPie";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: "#fff",
@@ -184,13 +185,13 @@ function page() {
           </Item>
           <Item
             sx={{
-              width: { xs: "100%", md: "48%" },
+              width: { xs: "100%", },
               borderRadius: "12px",
               pr: "40px",
               bgcolor: theme ? " white" : "#323233",
             }}
           >
-            <TooltipStyle />
+            <TitanicPie />
           </Item>
         </Stack>
       </Box>
