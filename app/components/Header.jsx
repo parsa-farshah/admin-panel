@@ -1,4 +1,4 @@
-import ashwin from "../../public/ashwin.svg";
+import parsa from "../../public/parsa.svg";
 import {
   Autocomplete,
   Box,
@@ -219,7 +219,7 @@ function Header({
             overflow: "hidden",
           }}
         >
-          <Image src="/parsa.svg" width={40} height={40} alt="profile" />
+          <Image src={parsa} width={40} height={40} alt="profile" />
         </Box>
       </Stack>
     </Stack>
