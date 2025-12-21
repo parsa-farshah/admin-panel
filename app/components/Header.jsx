@@ -225,7 +225,7 @@ function Header({
           <Image
             fill
             style={{ objectFit: "cover", width: "100%", height: "100%" }}
-            src="/parsa.png"
+            src="/parsa.svg"
             alt="profile"
           />
         </Box>
