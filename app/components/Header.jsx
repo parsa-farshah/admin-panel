@@ -223,12 +223,13 @@ function Header({
             position: "relative",
           }}
         >
-          <Image
+          {/* <Image
             fill
             style={{ objectFit: "cover", width: "100%", height: "100%" }}
             src={parsa}
             alt="profile"
-          />
+          /> */}
+          <Image height={100} src={parsa} alt="ashvin" />
         </Box>
       </Stack>
     </Stack>
