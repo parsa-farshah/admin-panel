@@ -24,6 +24,7 @@ import Image from "next/image";
 import SearchIcon from "@mui/icons-material/Search";
 import { myTheme } from "@/app/db/Db";
 import { Alexandria, Urbanist } from "next/font/google";
+import parsa from "../../public/parsa.svg";
 
 const urbanist = Urbanist({
   subsets: ["latin"],
@@ -225,7 +226,7 @@ function Header({
           <Image
             fill
             style={{ objectFit: "cover", width: "100%", height: "100%" }}
-            src="/parsa.svg"
+            src={parsa}
             alt="profile"
           />
         </Box>
