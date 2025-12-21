@@ -216,14 +216,12 @@ function Header({
         <Darklight IconName={DarkMode} themeChange={themeChange} />
         <Box
           sx={{
-            width: "40px",
-            height: "40px",
             borderRadius: "50%",
             overflow: "hidden",
             position: "relative",
           }}
         >
-          <Image height={200} src={ashwin} alt="ashvin" />
+          <Image height={40} width={40} src={ashwin} alt="ashvin" />
         </Box>
       </Stack>
     </Stack>
