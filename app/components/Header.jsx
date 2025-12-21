@@ -24,7 +24,7 @@ import Image from "next/image";
 import SearchIcon from "@mui/icons-material/Search";
 import { myTheme } from "@/app/db/Db";
 import { Alexandria, Urbanist } from "next/font/google";
-import parsa from "../../public/parsa.svg";
+import parsa from "../assets/parsa.svg";
 
 const urbanist = Urbanist({
   subsets: ["latin"],
