@@ -1,4 +1,5 @@
 "use client";
+import ashwin from "../../public/ashwin.svg";
 import {
   Autocomplete,
   Box,
@@ -24,6 +25,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import { myTheme } from "@/app/db/Db";
 import { Alexandria, Urbanist } from "next/font/google";
 import parsa from "../../public/icons/parsa.svg";
+import Image from "next/image";
 
 const urbanist = Urbanist({
   subsets: ["latin"],
@@ -229,7 +231,7 @@ function Header({
             alt="profile"
           /> */}
           {/* <img src="../" alt="" /> */}
-          <img src={parsa.src} alt="parsa" width={40} height={40} />
+          <Image height={200} src={ashwin} alt="ashvin" />
         </Box>
       </Stack>
     </Stack>
