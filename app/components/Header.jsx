@@ -23,7 +23,6 @@ import Darklight from "./Darklight";
 import SearchIcon from "@mui/icons-material/Search";
 import { myTheme } from "@/app/db/Db";
 import { Alexandria, Urbanist } from "next/font/google";
-import parsa from "../../public/icons/parsa.svg";
 import Image from "next/image";
 
 const urbanist = Urbanist({
@@ -218,10 +217,9 @@ function Header({
           sx={{
             borderRadius: "50%",
             overflow: "hidden",
-            position: "relative",
           }}
         >
-          <Image height={40} width={40} src="./file.svg" alt="ashvin" />
+          <Image src="/parsa.svg" width={40} height={40} alt="profile" />
         </Box>
       </Stack>
     </Stack>
