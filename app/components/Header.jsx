@@ -221,7 +221,7 @@ function Header({
             position: "relative",
           }}
         >
-          <Image height={40} width={40} src={ashwin} alt="ashvin" />
+          <Image height={40} width={40} src="/file.svg" alt="ashvin" />
         </Box>
       </Stack>
     </Stack>
