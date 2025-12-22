@@ -6,6 +6,7 @@ import { useContext, useState } from "react";
 import { myTheme } from "@/app/db/Db";
 import Header from "@/app/components/Header";
 import { Close } from "@mui/icons-material";
+import Developer from "@/app/components/Developer";
 
 function page() {
   const { theme, setTheme, lang, setLang } = useContext(myTheme);
@@ -136,8 +137,12 @@ function page() {
           menuMobileBtn={menuMobileBtn}
           dispaly={dispaly}
         />
-        <Box sx={{mt: "40px" }}>
+        <Box sx={{ mt: "40px" }}>
           <StudentsList />
+        </Box>
+        {/* developer */}
+        <Box component={"div"} sx={{ mt: "40px" }}>
+          <Developer />
         </Box>
       </Box>
     </Stack>

@@ -44,7 +44,7 @@ function Sidebar({
   colorLog,
   colorStu,
 }) {
-  const { lang,theme } = useContext(myTheme);
+  const { lang, theme } = useContext(myTheme);
 
   return (
     <Stack
@@ -52,14 +52,14 @@ function Sidebar({
         px: "17px",
         pt: 4,
         width: "100%",
-        height: "100vh",
+        height: "90vh",
         bgcolor: "black",
         display: "block",
         borderRadius: 6,
         position: "relative",
         zIndex: 50,
         pb: { xs: 7, md: 6 },
-        bgcolor: theme ?  "black" : "#1e1e1e"
+        bgcolor: theme ? "black" : "#1e1e1e",
       }}
     >
       {/* up side */}
@@ -84,7 +84,7 @@ function Sidebar({
           <Typography
             sx={{
               fontWeight: 600,
-              fontSize: "32px",
+              fontSize: { xs: "32px", md: "16px", lg: "32px" },
               color: "white",
               fontFamily: lang
                 ? urbanist.style.fontFamily

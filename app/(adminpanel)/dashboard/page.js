@@ -7,6 +7,7 @@ import { Close, DragHandle } from "@mui/icons-material";
 import Main from "../../components/Main";
 import { useContext, useState } from "react";
 import { myTheme } from "@/app/db/Db";
+import Developer from "@/app/components/Developer";
 
 const urbanist = Urbanist({
   subsets: ["latin"],
@@ -148,6 +149,9 @@ export default function Home() {
           dispaly={dispaly}
         />
         <Main />
+        <Box component={"div"} sx={{ mt: "40px" }}>
+          <Developer />
+        </Box>
       </Box>
     </Stack>
   );

@@ -69,9 +69,9 @@ function SignIn() {
   return (
     <Box
       sx={{
-        width: "100%",
+        width: { xs: "100%", xl: 1536 },
+        mx: "auto",
         height: "100vh",
-        bgcolor: "#F5F4F9",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -142,6 +142,7 @@ function SignIn() {
               width: "100%",
               color: "black",
               fontFamily: urbanist.style.fontFamily,
+
               "& label": {
                 color: "white",
               },
@@ -213,6 +214,7 @@ function SignIn() {
               color: "white",
               borderColor: "white",
               fontFamily: urbanist.style.fontFamily,
+              fontWeight: "800",
               "&:hover": {
                 borderColor: "white",
                 backgroundColor: "rgba(255,255,255,0.08)",
@@ -250,6 +252,7 @@ function SignIn() {
               borderColor: "white",
               mt: { xs: "30px", md: "20px" },
               fontFamily: urbanist.style.fontFamily,
+              fontWeight: 800,
             }}
           />
         </Box>
